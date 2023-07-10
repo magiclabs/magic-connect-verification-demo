@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -28,7 +30,7 @@ code {
 .button-container {
   display: flex;
   margin: 0 auto;
-  width: 600px;
+  width: 300px;
   justify-content: space-around;
   margin-top: 50px;
 }
@@ -43,10 +45,9 @@ button {
   border-radius: 300px;
   cursor: pointer;
   border: none;
-  padding: 12px 30px;
+  padding: 12px 24px;
   font-weight: 600;
-  font-size: 1.8rem;
-  width: 280px;
+  font-size: 18px;
   height: 48px;
   line-height: 0;
 }
