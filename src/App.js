@@ -27,14 +27,17 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="container">
       {!account && <button onClick={connectWallet}>Log in</button>}
 
       {account && (
         <div>
-          <div>ID Token: {idToken}</div>
-          <button onClick={showUI}>Show UI</button>
-          <button onClick={logout}>Logout</button>
+          <h1>ID Token:</h1>
+          <p className="token">{idToken}</p>
+          <div className="button-container">
+            <button onClick={showUI}>Show UI</button>
+            <button onClick={logout}>Logout</button>
+          </div>
         </div>
       )}
     </div>
