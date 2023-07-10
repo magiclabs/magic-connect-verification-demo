@@ -32,9 +32,7 @@ export default function Home() {
 
       {account && (
         <div>
-          <div style={{ width: "400px", overflowWrap: "break-word" }}>
-            ID Token: {idToken}
-          </div>
+          <div>ID Token: {idToken}</div>
           <button onClick={showUI}>Show UI</button>
           <button onClick={logout}>Logout</button>
         </div>
