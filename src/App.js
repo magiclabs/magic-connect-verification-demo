@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Magic } from "magic-sdk";
 
-function App() {
+const magic = new Magic("pk_live_7645A843999E2369");
+
+export default function Home() {
+  const [account, setAccount] = useState(null);
+  const [idToken, setIdToken] = useState();
+
+  const connectWallet = async () => {
+    const accounts = await magic.wallet
+      .connectWithUI()
+      .on("id-token-created", (params) => {
+        setIdToken(params.idToken);
+      });
+
+    setAccount(accounts[0]);
+  };
+
+  const showUI = () => {
+    magic.wallet.showUI();
+  };
+
+  const logout = async () => {
+    await magic.user.logout();
+    setAccount(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!account && <button onClick={connectWallet}>Log in</button>}
+
+      {account && (
+        <div>
+          <div style={{ width: "400px", overflowWrap: "break-word" }}>
+            ID Token: {idToken}
+          </div>
+          <button onClick={showUI}>Show UI</button>
+          <button onClick={logout}>Logout</button>
+        </div>
+      )}
     </div>
   );
 }
-
-export default App;
