@@ -28,11 +28,16 @@ export default function Home() {
 
   return (
     <div className="container">
-      {!account && <button onClick={connectWallet}>Log in</button>}
+      {!account && (
+        <div className="login-container">
+          <h1>Login with Wallet Verification</h1>
+          <button onClick={connectWallet}>Log in</button>
+        </div>
+      )}
 
       {account && (
         <div>
-          <h1>ID Token:</h1>
+          <h2>ID Token:</h2>
           <p className="token">{idToken}</p>
           <div className="button-container">
             <button onClick={showUI}>Show UI</button>

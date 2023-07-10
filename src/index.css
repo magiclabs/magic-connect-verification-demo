@@ -23,6 +23,16 @@ code {
   width: 600px;
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 50px;
+}
+
 .token {
   word-break: break-all;
 }
@@ -50,4 +60,5 @@ button {
   font-size: 18px;
   height: 48px;
   line-height: 0;
+  width: fit-content;
 }
