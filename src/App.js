@@ -22,7 +22,7 @@ export default function Home() {
   };
 
   const logout = async () => {
-    await magic.wallet.disconnect();
+    await magic.user.logout();
     setAccount(null);
   };
 
